@@ -1989,7 +1989,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     submitForm: function submitForm() {
-      this.$http.post(base + "/api/add-item", this.item).then(function (response) {
+      this.$http.post("/api/add-item", this.item).then(function (response) {
         console.log(response);
       });
     }
