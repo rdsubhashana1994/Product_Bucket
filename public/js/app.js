@@ -1989,7 +1989,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     submitForm: function submitForm() {
-      this.$http.post("http://localhost:8000/api/addItem", this.item).then(function (response) {
+      this.$http.post("/api/addItem", this.item).then(function (response) {
         console.log(response);
       });
     }
@@ -56163,8 +56163,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\projects\probucket\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\projects\probucket\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\projects\Product_Bucket\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\projects\Product_Bucket\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),
