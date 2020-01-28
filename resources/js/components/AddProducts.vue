@@ -64,7 +64,7 @@
         },
         methods: {
             submitForm() {
-                this.$http.post("http://localhost:8000/api/addItem",this.item)
+                this.$http.post( base + "/api/add-item",this.item )
                     .then(function (response) {
                         console.log(response);
                     })

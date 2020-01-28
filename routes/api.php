@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 //add new items
-Route::post('/addItem', [
+Route::post('/add-item', [
     'uses'=> 'ItemController@addItem'
 ]);
 
