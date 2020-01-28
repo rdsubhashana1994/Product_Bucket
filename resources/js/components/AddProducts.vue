@@ -39,7 +39,7 @@
             </div>
 
             <button type="submit"
-                    class="btn btn-primary mt-3"
+                    class="btn btn-primary mt-3 addProductBtn"
                     v-show="item.name && item.quantity && item.price"
             >
                 Add to Bucket
@@ -64,7 +64,7 @@
         },
         methods: {
             submitForm() {
-                this.$http.post("http://localhost:8000/api/add-item",this.item)
+                this.$http.post("http://localhost:8000/api/additem",this.item)
                     .then(function (response) {
                         console.log(response);
                     })

@@ -4,21 +4,21 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 //add new items
-Route::post('/add-item', [
+Route::post('/additem', [
     'uses'=> 'ItemController@addItem'
 ]);
 
 //get all items
-Route::get('/get-item', [
+Route::get('/getitem', [
     'uses'=> 'ItemController@getItem'
 ]);
 
 //delete an item
-Route::delete('/delete-item/{id}', [
+Route::delete('/deleteitem/{id}', [
     'uses'=> 'ItemController@deleteItem'
 ]);
 
 //edit an item
-Route::put('/edit-item/{id}', [
+Route::put('/edititem/{id}', [
    'uses'=> 'ItemController@editItem'
 ]);

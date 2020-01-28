@@ -1989,7 +1989,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     submitForm: function submitForm() {
-      this.$http.post("http://localhost:8000/api/add-item", this.item).then(function (response) {
+      this.$http.post("http://localhost:8000/api/additem", this.item).then(function (response) {
         console.log(response);
       });
     }
@@ -38467,7 +38467,7 @@ var render = function() {
                 expression: "item.name && item.quantity && item.price"
               }
             ],
-            staticClass: "btn btn-primary mt-3",
+            staticClass: "btn btn-primary mt-3 addProductBtn",
             attrs: { type: "submit" }
           },
           [_vm._v("\n            Add to Bucket\n        ")]
