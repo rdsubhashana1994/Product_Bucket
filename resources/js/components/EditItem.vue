@@ -1,11 +1,11 @@
 <template>
     <div class="container">
 
-        <h2>Add Products</h2>
+        <h2>Update Products</h2>
 
         <hr>
 
-        <form @submit.prevent="submitForm">
+        <form>
 
             <div class="form-group">
                 <label for="formGroupExampleInput">Product Name</label>
@@ -14,7 +14,6 @@
                        id="formGroupExampleInput"
                        name="product_name"
                        placeholder="Product Name"
-                       v-model="item.name"
                 >
             </div>
 
@@ -24,7 +23,6 @@
                        class="form-control"
                        id="formGroupExampleInput2"
                        placeholder="Quantity"
-                       v-model="item.quantity"
                 >
             </div>
 
@@ -34,47 +32,20 @@
                        class="form-control"
                        id="formGroupExampleInput3"
                        placeholder="Price LKR"
-                       v-model="item.price"
                 >
             </div>
 
             <button type="submit"
                     class="btn btn-primary mt-3"
-                    v-show="item.name && item.quantity && item.price"
             >
-                Add to Bucket
+                Update the Item
             </button>
 
         </form>
 
     </div>
-
 </template>
 
 <script>
-    export default {
-        data() {
-            return {
-                item:{
-                    name:'',
-                    quantity:'',
-                    price:'',
-                }
-            }
-        },
-        methods: {
-            submitForm() {
-                this.$http.post("/api/addItem",this.item)
-                    .then(function (response) {
-                        console.log(response);
-                        if (response.status === 200) {
-                            alert(this.item.name + " added successfully!");
-                            this.$router.push('/bucket');
-                        } else {
-                            alert("Sorry "+ this.item.name + " cannot add to the bucket!")
-                        }
-                    })
-            }
-        }
-    }
+
 </script>
