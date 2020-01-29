@@ -1,7 +1,7 @@
 <template>
     <div class="container">
 
-        <h2>Update Products</h2>
+        <h2 class="mt-4">Update Products</h2>
 
         <hr>
 

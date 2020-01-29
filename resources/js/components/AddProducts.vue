@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h2>Add Products</h2>
+        <h2 class="mt-4">Add Products</h2>
         <hr>
         <form @submit.prevent="submitForm">
             <div class="form-group">

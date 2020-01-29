@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h2>About Us</h2>
+    <h2 class="mt-4">About Us</h2>
   </div>
 </template>
 

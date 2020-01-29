@@ -1,104 +1,179 @@
 <template>
     <div class="container">
 
-        <h2>My Bucket</h2>
+        <h2 class="mt-4">My Bucket</h2>
 
         <hr>
 
         <div id="products" class="row list-group">
-            <div class="item  col-xs-4 col-lg-4" v-for="item in items">
-                <div class="thumbnail">
-                    <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
-                    <div class="caption">
-                        <h3 class="group inner list-group-item-heading"> {{item.name}}</h3>
-                        <div class="row">
-                            <div class="col-xs-12 col-md-6">
-                                <h4>Price : LKR {{item.price}}</h4>
-                            </div>
-                            <div class="col-xs-12 col-md-6">
-                                <h4>Quantity : {{item.quantity}}</h4>
-                            </div>
-                            <div class="col-xs-12 col-md-6">
-                                <router-link class="btn btn-primary" :to="'/update/'+item.id">Change</router-link>
-                                <a class="btn btn-danger" @click="deleteOnAction($event)" v-bind:id="item.id">Remove</a>
+
+            <div class="col-lg-4 col-md-6 mb-4" v-for="item in items">
+                <!-- Single Blog -->
+                <div class="single-blog">
+                    <div class="blog-img">
+                        <img src="http://infinityflamesoft.com/html/abal-preview/assets/img/blog/blog1.jpg" alt="">
+                        <div class="post-category">
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-title">
+                            <h4 class="group inner list-group-item-heading" >{{item.name}}</h4>
+                            <div class="meta">
+                                <ul>
+                                    <p>Price : LKR {{item.price}}</p>
+                                </ul>
+                                <ul>
+                                    <p>Quantity : {{item.quantity}}</p>
+                                </ul>
                             </div>
                         </div>
+                        <router-link class="btn btn-primary" :to="'/update/'+item.id">Change</router-link>
+                        <a class="btn btn-danger" @click="deleteOnAction($event)" v-bind:id="item.id">Remove</a>
                     </div>
                 </div>
             </div>
-
         </div>
+
+
+
+
+
     </div>
 
 
 </template>
 
 <style>
-    .glyphicon { margin-right:5px; }
-    .thumbnail
-    {
-        margin-bottom: 20px;
-        padding: 0px;
-        -webkit-border-radius: 0px;
-        -moz-border-radius: 0px;
-        border-radius: 0px;
+    .pb-100 {
+        padding-bottom: 100px;
     }
-
-    .item.list-group-item
-    {
-        float: none;
+    .pt-100 {
+        padding-top: 100px;
+    }
+    .mb-100 {
+        margin-bottom: 100px;
+    }
+    a {
+        text-decoration: none;
+        color: #333;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+    .section-title {
+        position: relative;
+    }
+    .section-title p {
+        font-size: 16px;
+        margin-bottom: 5px;
+        font-weight: 400;
+    }
+    .section-title h4 {
+        font-size: 40px;
+        font-weight: 600;
+        text-transform: capitalize;
+        position: relative;
+        padding-bottom: 20px;
+        display: inline-block;
+    }
+    .section-title h4::before {
+        position: absolute;
+        content: "";
+        width: 80px;
+        height: 2px;
+        background-color: #d8d8d8;
+        bottom: 0;
+        left: 50%;
+        margin-left: -40px;
+    }
+    .section-title h4::after {
+        position: absolute;
+        content: "";
+        width: 50px;
+        height: 2px;
+        background-color: #FF7200;
+        left: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -25px;
+    }
+    .blog-img {
+        position: relative;
+    }
+    .blog-img img {
         width: 100%;
-        background-color: #fff;
-        margin-bottom: 10px;
     }
-    .item.list-group-item:nth-of-type(odd):hover,.item.list-group-item:hover
-    {
-        background: #428bca;
+    .post-category a {
+        display: inline-block;
+        background-color: #FF7200;
+        color: #fff;
+        font-size: 15px;
+        padding: 5px 20px;
     }
-
-    .item.list-group-item .list-group-image
-    {
-        margin-right: 10px;
+    .single-blog:hover img {
+        opacity: .85;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=85)"
     }
-    .item.list-group-item .thumbnail
-    {
-        margin-bottom: 0px;
+    .post-category {
+        position: absolute;
+        left: 0;
+        bottom: 0;
     }
-    .item.list-group-item .caption
-    {
-        padding: 9px 9px 0px 9px;
+    .blog-content {
+        padding: 30px 20px;
     }
-    .item.list-group-item:nth-of-type(odd)
-    {
-        background: #eeeeee;
+    .single-blog {
+        border: 1px solid #eee;
     }
-
-    .item.list-group-item:before, .item.list-group-item:after
-    {
-        display: table;
-        content: " ";
+    .blog-title h4 {
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 5px;
     }
-
-    .item.list-group-item img
-    {
-        float: left;
+    .meta ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
     }
-    .item.list-group-item:after
-    {
-        clear: both;
+    .meta {
+        margin-bottom: 20px;
+        opacity: .85;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=85)";
     }
-    .list-group-item-text
-    {
-        margin: 0 0 11px;
+    .blog-content a.box_btn {
+        display: inline-block;
+        background-color: #FF7200;
+        padding: 5px 15px;
+        color: #fff;
+        text-transform: capitalize;
+        margin-top: 20px;
     }
-
+    a.box_btn::before {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: #CC5B00;
+        left: -100%;
+        top: 0;
+        -webkit-transition: .5s;
+        transition: .5s;
+        z-index: -1;
+    }
+    a.box_btn {
+        overflow: hidden;
+        z-index: 2;
+        -webkit-transition: .5s;
+        transition: .5s;
+        position: relative;
+        text-decoration:none;
+    }
+    a.box_btn:hover::before {
+        left: 0;
+        z-index: -1;
+    }
     .list-group {
-        display: block !important;
+        display: -webkit-box;
     }
-    .row {
-        display: block !important;
-    }
-
 </style>
 
 <script>

@@ -2184,6 +2184,81 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -6803,7 +6878,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.glyphicon { margin-right:5px;\n}\n.thumbnail\n{\n    margin-bottom: 20px;\n    padding: 0px;\n    border-radius: 0px;\n}\n.item.list-group-item\n{\n    float: none;\n    width: 100%;\n    background-color: #fff;\n    margin-bottom: 10px;\n}\n.item.list-group-item:nth-of-type(odd):hover,.item.list-group-item:hover\n{\n    background: #428bca;\n}\n.item.list-group-item .list-group-image\n{\n    margin-right: 10px;\n}\n.item.list-group-item .thumbnail\n{\n    margin-bottom: 0px;\n}\n.item.list-group-item .caption\n{\n    padding: 9px 9px 0px 9px;\n}\n.item.list-group-item:nth-of-type(odd)\n{\n    background: #eeeeee;\n}\n.item.list-group-item:before, .item.list-group-item:after\n{\n    display: table;\n    content: \" \";\n}\n.item.list-group-item img\n{\n    float: left;\n}\n.item.list-group-item:after\n{\n    clear: both;\n}\n.list-group-item-text\n{\n    margin: 0 0 11px;\n}\n.list-group {\n    display: block !important;\n}\n.row {\n    display: block !important;\n}\n\n", ""]);
+exports.push([module.i, "\n.pb-100 {\n    padding-bottom: 100px;\n}\n.pt-100 {\n    padding-top: 100px;\n}\n.mb-100 {\n    margin-bottom: 100px;\n}\na {\n    text-decoration: none;\n    color: #333;\n    -webkit-transition: .4s;\n    transition: .4s;\n}\n.section-title {\n    position: relative;\n}\n.section-title p {\n    font-size: 16px;\n    margin-bottom: 5px;\n    font-weight: 400;\n}\n.section-title h4 {\n    font-size: 40px;\n    font-weight: 600;\n    text-transform: capitalize;\n    position: relative;\n    padding-bottom: 20px;\n    display: inline-block;\n}\n.section-title h4::before {\n    position: absolute;\n    content: \"\";\n    width: 80px;\n    height: 2px;\n    background-color: #d8d8d8;\n    bottom: 0;\n    left: 50%;\n    margin-left: -40px;\n}\n.section-title h4::after {\n    position: absolute;\n    content: \"\";\n    width: 50px;\n    height: 2px;\n    background-color: #FF7200;\n    left: 0;\n    bottom: 0;\n    left: 50%;\n    margin-left: -25px;\n}\n.blog-img {\n    position: relative;\n}\n.blog-img img {\n    width: 100%;\n}\n.post-category a {\n    display: inline-block;\n    background-color: #FF7200;\n    color: #fff;\n    font-size: 15px;\n    padding: 5px 20px;\n}\n.single-blog:hover img {\n    opacity: .85;\n    -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=85)\"\n}\n.post-category {\n    position: absolute;\n    left: 0;\n    bottom: 0;\n}\n.blog-content {\n    padding: 30px 20px;\n}\n.single-blog {\n    border: 1px solid #eee;\n}\n.blog-title h4 {\n    font-size: 20px;\n    font-weight: 500;\n    margin-bottom: 5px;\n}\n.meta ul {\n    margin: 0;\n    padding: 0;\n    list-style: none;\n}\n.meta {\n    margin-bottom: 20px;\n    opacity: .85;\n    -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=85)\";\n}\n.blog-content a.box_btn {\n    display: inline-block;\n    background-color: #FF7200;\n    padding: 5px 15px;\n    color: #fff;\n    text-transform: capitalize;\n    margin-top: 20px;\n}\na.box_btn::before {\n    position: absolute;\n    content: \"\";\n    width: 100%;\n    height: 100%;\n    background-color: #CC5B00;\n    left: -100%;\n    top: 0;\n    -webkit-transition: .5s;\n    transition: .5s;\n    z-index: -1;\n}\na.box_btn {\n    overflow: hidden;\n    z-index: 2;\n    -webkit-transition: .5s;\n    transition: .5s;\n    position: relative;\n    text-decoration:none;\n}\na.box_btn:hover::before {\n    left: 0;\n    z-index: -1;\n}\n.list-group {\n    display: -webkit-box;\n}\n", ""]);
 
 // exports
 
@@ -38283,7 +38358,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container" }, [
-      _c("h2", [_vm._v("About Us")])
+      _c("h2", { staticClass: "mt-4" }, [_vm._v("About Us")])
     ])
   }
 ]
@@ -38309,7 +38384,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("h2", [_vm._v("Add Products")]),
+    _c("h2", { staticClass: "mt-4" }, [_vm._v("Add Products")]),
     _vm._v(" "),
     _c("hr"),
     _vm._v(" "),
@@ -38480,7 +38555,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container" }, [
-      _c("h2", [_vm._v("Contact Us")])
+      _c("h2", { staticClass: "mt-4" }, [_vm._v("Contact Us")])
     ])
   }
 ]
@@ -38513,7 +38588,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container" }, [
-      _c("h2", [_vm._v("Update Products")]),
+      _c("h2", { staticClass: "mt-4" }, [_vm._v("Update Products")]),
       _vm._v(" "),
       _c("hr"),
       _vm._v(" "),
@@ -38603,7 +38678,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container" }, [
-      _c("h2", [_vm._v("Home Page")])
+      _c("h2", { staticClass: "mt-4" }, [_vm._v("Home Page")])
     ])
   }
 ]
@@ -38629,7 +38704,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("h2", [_vm._v("My Bucket")]),
+    _c("h2", { staticClass: "mt-4" }, [_vm._v("My Bucket")]),
     _vm._v(" "),
     _c("hr"),
     _vm._v(" "),
@@ -38637,58 +38712,57 @@ var render = function() {
       "div",
       { staticClass: "row list-group", attrs: { id: "products" } },
       _vm._l(_vm.items, function(item) {
-        return _c("div", { staticClass: "item  col-xs-4 col-lg-4" }, [
-          _c("div", { staticClass: "thumbnail" }, [
-            _c("img", {
-              staticClass: "group list-group-image",
-              attrs: { src: "http://placehold.it/400x250/000/fff", alt: "" }
-            }),
+        return _c("div", { staticClass: "col-lg-4 col-md-6 mb-4" }, [
+          _c("div", { staticClass: "single-blog" }, [
+            _vm._m(0, true),
             _vm._v(" "),
-            _c("div", { staticClass: "caption" }, [
-              _c("h3", { staticClass: "group inner list-group-item-heading" }, [
-                _vm._v(" " + _vm._s(item.name))
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-xs-12 col-md-6" }, [
-                  _c("h4", [_vm._v("Price : LKR " + _vm._s(item.price))])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-xs-12 col-md-6" }, [
-                  _c("h4", [_vm._v("Quantity : " + _vm._s(item.quantity))])
+            _c(
+              "div",
+              { staticClass: "blog-content" },
+              [
+                _c("div", { staticClass: "blog-title" }, [
+                  _c(
+                    "h4",
+                    { staticClass: "group inner list-group-item-heading" },
+                    [_vm._v(_vm._s(item.name))]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "meta" }, [
+                    _c("ul", [
+                      _c("p", [_vm._v("Price : LKR " + _vm._s(item.price))])
+                    ]),
+                    _vm._v(" "),
+                    _c("ul", [
+                      _c("p", [_vm._v("Quantity : " + _vm._s(item.quantity))])
+                    ])
+                  ])
                 ]),
                 _vm._v(" "),
                 _c(
-                  "div",
-                  { staticClass: "col-xs-12 col-md-6" },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "btn btn-primary",
-                        attrs: { to: "/update/" + item.id }
-                      },
-                      [_vm._v("Change")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-danger",
-                        attrs: { id: item.id },
-                        on: {
-                          click: function($event) {
-                            return _vm.deleteOnAction($event)
-                          }
-                        }
-                      },
-                      [_vm._v("Remove")]
-                    )
-                  ],
-                  1
+                  "router-link",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { to: "/update/" + item.id }
+                  },
+                  [_vm._v("Change")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-danger",
+                    attrs: { id: item.id },
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteOnAction($event)
+                      }
+                    }
+                  },
+                  [_vm._v("Remove")]
                 )
-              ])
-            ])
+              ],
+              1
+            )
           ])
         ])
       }),
@@ -38696,7 +38770,24 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "blog-img" }, [
+      _c("img", {
+        attrs: {
+          src:
+            "http://infinityflamesoft.com/html/abal-preview/assets/img/blog/blog1.jpg",
+          alt: ""
+        }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "post-category" })
+    ])
+  }
+]
 render._withStripped = true
 
 
