@@ -1,20 +1,24 @@
 <?php
-
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Validator;
+use Validator;
 use App\Item;
 use Illuminate\Http\Request;
 
-
 class ItemController extends Controller {
 
-//    add items
+  /**
+   * Created By : 
+   * Created At : 29/01/2020
+   * Summary : Adds item to the data table
+   * @param Request $request
+   * @return void
+   */
     public function addItem (Request $request) {
 
         $validator = Validator::make($request->all(), [
             'name' => 'required|min:3|max:50',
-            'quantity' => 'required',
-            'price' => 'required',
+            'quantity' => 'required|min:1|numeric',
+            'price' => 'required|min:1|numeric',
             [
                 'name.required' => 'Item name cannot be empty',
                 'name.min:3' => 'Item name should have minimum 3 characters',
@@ -25,16 +29,14 @@ class ItemController extends Controller {
         if ($validator->fails()) {
             return response() -> json(array(
                 'success' => false,
-                'data' => $validator -> errors() -> all()
+                'data' => $validator -> errors() -> all()[0]
             ));
         }
 
         $item = new Item();
-
         $item->name = $request->input('name');
         $item->quantity = $request->input('quantity');
         $item->price = $request->input('price');
-
         $item->save();
 
         return response()->json(array(

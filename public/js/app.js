@@ -1953,30 +1953,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1984,19 +1960,20 @@ __webpack_require__.r(__webpack_exports__);
         name: '',
         quantity: '',
         price: ''
-      }
+      },
+      error: false,
+      message: ''
     };
   },
   methods: {
     submitForm: function submitForm() {
       this.$http.post("/api/addItem", this.item).then(function (response) {
-        console.log(response);
-
-        if (response.status === 200) {
+        if (response.data.success) {
           alert(this.item.name + " added successfully!");
           this.$router.push('/bucket');
         } else {
-          alert("Sorry " + this.item.name + " cannot add to the bucket!");
+          this.error = true;
+          this.message = response.data.data;
         }
       });
     }
@@ -38462,7 +38439,15 @@ var render = function() {
           [_vm._v("\n            Add to Bucket\n        ")]
         )
       ]
-    )
+    ),
+    _vm._v(" "),
+    _vm.error
+      ? _c(
+          "div",
+          { staticClass: "alert alert-warning", attrs: { role: "alert" } },
+          [_vm._v("\n       " + _vm._s(_vm.message) + "\n    ")]
+        )
+      : _vm._e()
   ])
 }
 var staticRenderFns = []
@@ -38762,7 +38747,7 @@ var render = function() {
               "li",
               { staticClass: "nav-item mr-4" },
               [
-                _c("router-link", { attrs: { to: "addproduct" } }, [
+                _c("router-link", { attrs: { to: "/addproduct" } }, [
                   _vm._v("New Product")
                 ])
               ],
@@ -38773,7 +38758,7 @@ var render = function() {
               "li",
               { staticClass: "nav-item mr-4" },
               [
-                _c("router-link", { attrs: { to: "bucket" } }, [
+                _c("router-link", { attrs: { to: "/bucket" } }, [
                   _vm._v("My Bucket")
                 ])
               ],
@@ -38787,7 +38772,7 @@ var render = function() {
                 "li",
                 { staticClass: "nav-item mr-4" },
                 [
-                  _c("router-link", { attrs: { to: "aboutus" } }, [
+                  _c("router-link", { attrs: { to: "/aboutus" } }, [
                     _vm._v("About Us")
                   ])
                 ],
@@ -38798,7 +38783,7 @@ var render = function() {
                 "li",
                 { staticClass: "nav-item mr-4" },
                 [
-                  _c("router-link", { attrs: { to: "contactus" } }, [
+                  _c("router-link", { attrs: { to: "/contactus" } }, [
                     _vm._v("Contact Us")
                   ])
                 ],
@@ -55535,8 +55520,8 @@ var routes = [{
   component: __webpack_require__(/*! ./components/EditItem.vue */ "./resources/js/components/EditItem.vue")["default"]
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
-  mode: 'history',
-  routes: routes
+  routes: routes,
+  mode: 'hash'
 });
 var app = new Vue({
   el: '#app',
@@ -56124,8 +56109,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\projects\Product_Bucket\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\projects\Product_Bucket\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\projects\product_bucket\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\projects\product_bucket\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

@@ -13,19 +13,19 @@
           <router-link to="/">Home</router-link>
         </li>
         <li class="nav-item mr-4">
-          <router-link to="addproduct">New Product</router-link>
+          <router-link to="/addproduct">New Product</router-link>
         </li>
         <li class="nav-item mr-4">
-          <router-link to="bucket">My Bucket</router-link>
+          <router-link to="/bucket">My Bucket</router-link>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item mr-4">
-            <router-link to="aboutus">About Us</router-link>
+            <router-link to="/aboutus">About Us</router-link>
           </li>
           <li class="nav-item mr-4">
-            <router-link to="contactus">Contact Us</router-link>
+            <router-link to="/contactus">Contact Us</router-link>
           </li>
         </ul>
       </form>
