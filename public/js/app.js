@@ -2063,24 +2063,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     this.getData();
   },
   data: function data() {
     return {
-      products: {}
+      productsbucket: {}
     };
   },
   methods: {
     getData: function getData() {
       this.$http.get("/api/getAnItem/" + this.$route.params.id).then(function (response) {
-        this.products = response.body.data;
+        this.productsbucket = response.body.data;
+        console.log("xxx : " + this.productsbucket.product_name);
+        console.log("xxx : " + this.productsbucket.quantity);
+        console.log("xxx : " + this.productsbucket.price);
       });
     },
     updateOnAction: function updateOnAction() {
-      this.$http.put("/api/editItem/" + this.$route.params.id).then(function (response) {
-        this.$router.push("/bucket");
+      this.$http.post("/api/editItem/" + this.$route.params.id, this.productsbucket).then(function (response) {// this.$router.push("/bucket");
       });
     }
   }
@@ -2280,17 +2283,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2300,7 +2292,6 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     this.$http.get("/api/getItem").then(function (response) {
       this.showitems = response.body.data;
-      console.log(response);
     });
   },
   methods: {
@@ -2311,7 +2302,6 @@ __webpack_require__.r(__webpack_exports__);
         this.$http["delete"]("/api/deleteItem/" + event.target.id).then(function (response) {
           this.$http.get("/api/getItem").then(function (response) {
             this.showitems = response.body.data;
-            console.log(response);
           });
         });
       }
@@ -38638,8 +38628,8 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.products.product_name,
-                expression: "products.product_name"
+                value: _vm.productsbucket.product_name,
+                expression: "productsbucket.product_name"
               }
             ],
             staticClass: "form-control",
@@ -38650,13 +38640,17 @@ var render = function() {
               name: "product_name",
               placeholder: "Product Name"
             },
-            domProps: { value: _vm.products.product_name },
+            domProps: { value: _vm.productsbucket.product_name },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.$set(_vm.products, "product_name", $event.target.value)
+                _vm.$set(
+                  _vm.productsbucket,
+                  "product_name",
+                  $event.target.value
+                )
               }
             }
           })
@@ -38672,23 +38666,24 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.products.quantity,
-                expression: "products.quantity"
+                value: _vm.productsbucket.quantity,
+                expression: "productsbucket.quantity"
               }
             ],
             staticClass: "form-control",
             attrs: {
               type: "number",
               id: "formGroupExampleInput2",
+              name: "quantity",
               placeholder: "Quantity"
             },
-            domProps: { value: _vm.products.quantity },
+            domProps: { value: _vm.productsbucket.quantity },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.$set(_vm.products, "quantity", $event.target.value)
+                _vm.$set(_vm.productsbucket, "quantity", $event.target.value)
               }
             }
           })
@@ -38704,8 +38699,8 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.products.price,
-                expression: "products.price"
+                value: _vm.productsbucket.price,
+                expression: "productsbucket.price"
               }
             ],
             staticClass: "form-control",
@@ -38714,13 +38709,13 @@ var render = function() {
               id: "formGroupExampleInput3",
               placeholder: "Price LKR"
             },
-            domProps: { value: _vm.products.price },
+            domProps: { value: _vm.productsbucket.price },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.$set(_vm.products, "price", $event.target.value)
+                _vm.$set(_vm.productsbucket, "price", $event.target.value)
               }
             }
           })
@@ -38795,68 +38790,72 @@ var render = function() {
     _vm._v(" "),
     _c("hr"),
     _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "row list-group", attrs: { id: "products" } },
-      _vm._l(_vm.showitems, function(showitem) {
-        return _c("div", { staticClass: "col-lg-4 col-md-6 mb-4" }, [
-          _c("div", { staticClass: "single-blog" }, [
-            _vm._m(0, true),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "blog-content" },
-              [
-                _c("div", { staticClass: "blog-title" }, [
-                  _c(
-                    "h4",
-                    { staticClass: "group inner list-group-item-heading" },
-                    [_vm._v(_vm._s(showitem.product_name))]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "meta" }, [
-                    _c("ul", [
-                      _c("p", [_vm._v("Price : LKR " + _vm._s(showitem.price))])
+    _vm.showitems.length
+      ? _c(
+          "div",
+          { staticClass: "row list-group", attrs: { id: "products" } },
+          _vm._l(_vm.showitems, function(showitem) {
+            return _c("div", { staticClass: "col-lg-4 col-md-6 mb-4" }, [
+              _c("div", { staticClass: "single-blog" }, [
+                _vm._m(0, true),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "blog-content" },
+                  [
+                    _c("div", { staticClass: "blog-title" }, [
+                      _c(
+                        "h4",
+                        { staticClass: "group inner list-group-item-heading" },
+                        [_vm._v(_vm._s(showitem.product_name))]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "meta" }, [
+                        _c("ul", [
+                          _c("p", [
+                            _vm._v("Price : LKR " + _vm._s(showitem.price))
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("ul", [
+                          _c("p", [
+                            _vm._v("Quantity : " + _vm._s(showitem.quantity))
+                          ])
+                        ])
+                      ])
                     ]),
                     _vm._v(" "),
-                    _c("ul", [
-                      _c("p", [
-                        _vm._v("Quantity : " + _vm._s(showitem.quantity))
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "btn btn-primary",
-                    attrs: { to: "/update/" + showitem.id }
-                  },
-                  [_vm._v("Change")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-danger",
-                    attrs: { id: showitem.id },
-                    on: {
-                      click: function($event) {
-                        return _vm.deleteOnAction($event)
-                      }
-                    }
-                  },
-                  [_vm._v("Remove")]
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "btn btn-primary",
+                        attrs: { to: "/update/" + showitem.id }
+                      },
+                      [_vm._v("Change")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-danger",
+                        attrs: { id: showitem.id },
+                        on: {
+                          click: function($event) {
+                            return _vm.deleteOnAction($event)
+                          }
+                        }
+                      },
+                      [_vm._v("Remove")]
+                    )
+                  ],
+                  1
                 )
-              ],
-              1
-            )
-          ])
-        ])
-      }),
-      0
-    )
+              ])
+            ])
+          }),
+          0
+        )
+      : _c("div", [_c("span", [_vm._v("Nothing to show here :(")])])
   ])
 }
 var staticRenderFns = [

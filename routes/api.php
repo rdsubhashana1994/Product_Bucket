@@ -23,6 +23,6 @@ Route::delete('/deleteItem/{id}', [
 ]);
 
 //edit an item
-Route::put('/editItem/{id}', [
+Route::post('/editItem/{id}', [
    'uses'=> 'ItemController@editItem'
 ]);

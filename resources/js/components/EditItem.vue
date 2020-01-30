@@ -10,7 +10,7 @@
                        id="formGroupExampleInput"
                        name="product_name"
                        placeholder="Product Name"
-                       v-model = "products.product_name"
+                       v-model = "productsbucket.product_name"
                 >
             </div>
             <div class="form-group">
@@ -18,8 +18,9 @@
                 <input type="number"
                        class="form-control"
                        id="formGroupExampleInput2"
+                       name="quantity"
                        placeholder="Quantity"
-                       v-model = "products.quantity"
+                       v-model = "productsbucket.quantity"
                 >
             </div>
             <div class="form-group">
@@ -28,7 +29,7 @@
                        class="form-control"
                        id="formGroupExampleInput3"
                        placeholder="Price LKR"
-                       v-model = "products.price"
+                       v-model = "productsbucket.price"
                 >
             </div>
             <button type="submit"
@@ -47,20 +48,23 @@
         },
         data(){
             return {
-                products: {}
+                productsbucket: {}
             }
         },
         methods: {
             getData() {
                 this.$http.get("/api/getAnItem/"+this.$route.params.id)
                     .then(function (response) {
-                        this.products = response.body.data;
+                        this.productsbucket = response.body.data;
+                        console.log("xxx : "+this.productsbucket.product_name);
+                        console.log("xxx : "+this.productsbucket.quantity);
+                        console.log("xxx : "+this.productsbucket.price);
                     })
             },
             updateOnAction() {
-                this.$http.put("/api/editItem/"+this.$route.params.id)
+                this.$http.post("/api/editItem/"+this.$route.params.id , this.productsbucket )
                     .then(function (response) {
-                        this.$router.push("/bucket");
+                        // this.$router.push("/bucket");
                     })
             }
         }

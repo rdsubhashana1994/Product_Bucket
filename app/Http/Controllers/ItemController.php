@@ -104,25 +104,21 @@ class ItemController extends Controller {
 
 //    edit an item
     public function editItem(Request $request, $id){
-        $item = Item::find($id);
 
-        if (! $item) {
-            return response()->json(array(
-                'success' => false,
-                'data' => "item not found in the bucket!"
-            ));
-        } else {
+        if ($item = Item::find($id)) {
             $item->product_name = $request->input('product_name');
             $item->quantity = $request->input('quantity');
             $item->price = $request->input('price');
-
             $item->save();
-
             return response()->json(array(
                 'success' => true,
                 'data' => $item
             ));
         }
+        return response()->json(array(
+            'success' => false,
+            'data' => "item not found in the bucket!"
+        ));
     }
 
 

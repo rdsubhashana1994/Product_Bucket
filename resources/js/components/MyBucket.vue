@@ -1,14 +1,9 @@
 <template>
     <div class="container">
-
         <h2 class="mt-4">My Bucket</h2>
-
         <hr>
-
-        <div id="products" class="row list-group">
-
-            <div class="col-lg-4 col-md-6 mb-4" v-for="showitem in showitems">
-                <!-- Single Blog -->
+        <div v-if="showitems.length" id="products" class="row list-group">
+            <div  class="col-lg-4 col-md-6 mb-4" v-for="showitem in showitems">
                 <div class="single-blog">
                     <div class="blog-img">
                         <img src="http://infinityflamesoft.com/html/abal-preview/assets/img/blog/blog1.jpg" alt="">
@@ -33,16 +28,11 @@
                 </div>
             </div>
         </div>
-
-
-
-
-
+        <div v-else>
+            <span>Nothing to show here :(</span>
+        </div>
     </div>
-
-
 </template>
-
 <style>
     .pb-100 {
         padding-bottom: 100px;
@@ -175,7 +165,6 @@
         display: -webkit-box;
     }
 </style>
-
 <script>
     export default {
         data() {
@@ -187,7 +176,6 @@
             this.$http.get("/api/getItem")
                 .then(function (response) {
                     this.showitems = response.body.data;
-                    console.log(response);
                 });
         },
         methods:{
@@ -200,7 +188,6 @@
                             this.$http.get("/api/getItem")
                                 .then(function (response) {
                                     this.showitems = response.body.data;
-                                    console.log(response);
                                 });
                         });
                 }
