@@ -7,7 +7,7 @@
 
         <div id="products" class="row list-group">
 
-            <div class="col-lg-4 col-md-6 mb-4" v-for="item in items">
+            <div class="col-lg-4 col-md-6 mb-4" v-for="showitem in showitems">
                 <!-- Single Blog -->
                 <div class="single-blog">
                     <div class="blog-img">
@@ -17,18 +17,18 @@
                     </div>
                     <div class="blog-content">
                         <div class="blog-title">
-                            <h4 class="group inner list-group-item-heading" >{{item.name}}</h4>
+                            <h4 class="group inner list-group-item-heading" >{{showitem.product_name}}</h4>
                             <div class="meta">
                                 <ul>
-                                    <p>Price : LKR {{item.price}}</p>
+                                    <p>Price : LKR {{showitem.price}}</p>
                                 </ul>
                                 <ul>
-                                    <p>Quantity : {{item.quantity}}</p>
+                                    <p>Quantity : {{showitem.quantity}}</p>
                                 </ul>
                             </div>
                         </div>
-                        <router-link class="btn btn-primary" :to="'/update/'+item.id">Change</router-link>
-                        <a class="btn btn-danger" @click="deleteOnAction($event)" v-bind:id="item.id">Remove</a>
+                        <router-link class="btn btn-primary" :to="'/update/'+showitem.id">Change</router-link>
+                        <a class="btn btn-danger" @click="deleteOnAction($event)" v-bind:id="showitem.id">Remove</a>
                     </div>
                 </div>
             </div>
@@ -180,13 +180,13 @@
     export default {
         data() {
             return {
-                items:[]
-            }
+                showitems:[]
+            };
         },
         created() {
             this.$http.get("/api/getItem")
                 .then(function (response) {
-                    this.items = response.body.data;
+                    this.showitems = response.body.data;
                     console.log(response);
                 });
         },

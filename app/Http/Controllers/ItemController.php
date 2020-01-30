@@ -7,12 +7,14 @@ use Illuminate\Http\Request;
 class ItemController extends Controller {
 
   /**
-   * Created By : 
+   * Created By :
    * Created At : 29/01/2020
    * Summary : Adds item to the data table
    * @param Request $request
    * @return void
    */
+
+//  add new item
     public function addItem (Request $request) {
 
         $validator = Validator::make($request->all(), [
@@ -34,14 +36,14 @@ class ItemController extends Controller {
         }
 
         $item = new Item();
-        $item->name = $request->input('name');
+        $item->product_name = $request->input('product_name');
         $item->quantity = $request->input('quantity');
         $item->price = $request->input('price');
+
         $item->save();
 
         return response()->json(array(
             'success' => true,
-            'code' => 201,
             'data' => 'Successful !'
         ));
     }
@@ -54,13 +56,29 @@ class ItemController extends Controller {
         if ($all_items) {
             return response()->json(array(
                 'success' => true,
-                'code'   => 200,
                 'data' => $all_items
             ));
         } else {
             return response()->json(array(
                 'success' => false,
-                'code'   => 404,
+                'data' => "No items in the bucket!"
+            ));
+        }
+    }
+
+//    get an item by id
+    public function getAnItem($id) {
+        $get_item = Item::find($id);
+
+
+        if ($get_item) {
+            return response()->json(array(
+                'success' => true,
+                'data' => $get_item
+            ));
+        } else {
+            return response()->json(array(
+                'success' => false,
                 'data' => "No items in the bucket!"
             ));
         }
@@ -97,7 +115,7 @@ class ItemController extends Controller {
                 'data' => "item not found in the bucket!"
             ));
         } else {
-            $item->name = $request->input('name');
+            $item->product_name = $request->input('product_name');
             $item->quantity = $request->input('quantity');
             $item->price = $request->input('price');
 
