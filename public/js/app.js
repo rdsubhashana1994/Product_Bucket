@@ -1967,7 +1967,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       item: {
-        product_name: '',
+        name: '',
         quantity: '',
         price: ''
       },
@@ -1983,7 +1983,7 @@ __webpack_require__.r(__webpack_exports__);
       // console.log(this.item.price);
       this.$http.post("/api/addItem", this.item).then(function (response) {
         if (response.data.success) {
-          alert(this.item.product_name + " added successfully!");
+          alert(this.item.name + " added successfully!");
           this.$router.push('/bucket');
         } else {
           this.error = true;
@@ -2310,7 +2310,7 @@ __webpack_require__.r(__webpack_exports__);
       if (message === true) {
         this.$http["delete"]("/api/deleteItem/" + event.target.id).then(function (response) {
           this.$http.get("/api/getItem").then(function (response) {
-            this.items = response.body.data;
+            this.showitems = response.body.data;
             console.log(response);
           });
         });
@@ -38441,8 +38441,8 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.item.product_name,
-                expression: "item.product_name"
+                value: _vm.item.name,
+                expression: "item.name"
               }
             ],
             staticClass: "form-control",
@@ -38453,13 +38453,13 @@ var render = function() {
               name: "product_name",
               placeholder: "Product Name"
             },
-            domProps: { value: _vm.item.product_name },
+            domProps: { value: _vm.item.name },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.$set(_vm.item, "product_name", $event.target.value)
+                _vm.$set(_vm.item, "name", $event.target.value)
               }
             }
           })
@@ -38536,9 +38536,8 @@ var render = function() {
               {
                 name: "show",
                 rawName: "v-show",
-                value:
-                  _vm.item.product_name && _vm.item.quantity && _vm.item.price,
-                expression: "item.product_name && item.quantity && item.price"
+                value: _vm.item.name && _vm.item.quantity && _vm.item.price,
+                expression: "item.name && item.quantity && item.price"
               }
             ],
             staticClass: "btn btn-primary mt-3",
@@ -38639,8 +38638,8 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.products.name,
-                expression: "products.name"
+                value: _vm.products.product_name,
+                expression: "products.product_name"
               }
             ],
             staticClass: "form-control",
@@ -38651,13 +38650,13 @@ var render = function() {
               name: "product_name",
               placeholder: "Product Name"
             },
-            domProps: { value: _vm.products.name },
+            domProps: { value: _vm.products.product_name },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.$set(_vm.products, "name", $event.target.value)
+                _vm.$set(_vm.products, "product_name", $event.target.value)
               }
             }
           })
@@ -56114,14 +56113,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!**********************************************!*\
   !*** ./resources/js/components/MyBucket.vue ***!
   \**********************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _MyBucket_vue_vue_type_template_id_7a541d21___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MyBucket.vue?vue&type=template&id=7a541d21& */ "./resources/js/components/MyBucket.vue?vue&type=template&id=7a541d21&");
 /* harmony import */ var _MyBucket_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MyBucket.vue?vue&type=script&lang=js& */ "./resources/js/components/MyBucket.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _MyBucket_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MyBucket.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/MyBucket.vue?vue&type=style&index=0&lang=css&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _MyBucket_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _MyBucket_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _MyBucket_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MyBucket.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/MyBucket.vue?vue&type=style&index=0&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -56153,7 +56153,7 @@ component.options.__file = "resources/js/components/MyBucket.vue"
 /*!***********************************************************************!*\
   !*** ./resources/js/components/MyBucket.vue?vue&type=script&lang=js& ***!
   \***********************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

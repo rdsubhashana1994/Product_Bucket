@@ -10,7 +10,7 @@
                        id="formGroupExampleInput"
                        name="product_name"
                        placeholder="Product Name"
-                       v-model = "products.name"
+                       v-model = "products.product_name"
                 >
             </div>
             <div class="form-group">

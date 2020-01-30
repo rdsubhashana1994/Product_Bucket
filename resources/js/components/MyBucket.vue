@@ -199,7 +199,7 @@
                         .then(function (response) {
                             this.$http.get("/api/getItem")
                                 .then(function (response) {
-                                    this.items = response.body.data;
+                                    this.showitems = response.body.data;
                                     console.log(response);
                                 });
                         });

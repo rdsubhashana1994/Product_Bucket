@@ -36,7 +36,7 @@ class ItemController extends Controller {
         }
 
         $item = new Item();
-        $item->product_name = $request->input('product_name');
+        $item->product_name = $request->input('name');
         $item->quantity = $request->input('quantity');
         $item->price = $request->input('price');
 
@@ -90,7 +90,6 @@ class ItemController extends Controller {
         if (! $item) {
             return response()->json(array(
                 'success' => false,
-                'code'   => 404,
                 'data' => "item not found in the bucket!"
             ));
         } else {
@@ -98,7 +97,6 @@ class ItemController extends Controller {
 
             return response()->json(array(
                 'success' => true,
-                'code'   => 201,
                 'data' => $item
             ));
         }
@@ -111,7 +109,6 @@ class ItemController extends Controller {
         if (! $item) {
             return response()->json(array(
                 'success' => false,
-                'code'   => 404,
                 'data' => "item not found in the bucket!"
             ));
         } else {
@@ -123,7 +120,6 @@ class ItemController extends Controller {
 
             return response()->json(array(
                 'success' => true,
-                'code'   => 200,
                 'data' => $item
             ));
         }

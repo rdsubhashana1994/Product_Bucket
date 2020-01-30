@@ -10,7 +10,7 @@
                        id="formGroupExampleInput"
                        name="product_name"
                        placeholder="Product Name"
-                       v-model="item.product_name">
+                       v-model="item.name">
             </div>
             <div class="form-group">
                 <label for="formGroupExampleInput2">Quantity</label>
@@ -28,7 +28,7 @@
                        placeholder="Price LKR"
                        v-model="item.price">
             </div>
-            <button type="submit" class="btn btn-primary mt-3" v-show="item.product_name && item.quantity && item.price">
+            <button type="submit" class="btn btn-primary mt-3" v-show="item.name && item.quantity && item.price">
                 Add to Bucket
             </button>
         </form>
@@ -42,7 +42,7 @@
         data() {
             return {
                 item: {
-                    product_name: '',
+                    name: '',
                     quantity: '',
                     price: '',
                 },
@@ -60,7 +60,7 @@
                 this.$http.post("/api/addItem", this.item)
                     .then(function (response) {
                         if (response.data.success) {
-                            alert(this.item.product_name + " added successfully!");
+                            alert(this.item.name + " added successfully!");
                             this.$router.push('/bucket');
                         } else {
                             this.error = true;
