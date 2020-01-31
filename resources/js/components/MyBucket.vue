@@ -6,7 +6,7 @@
             <div  class="col-lg-4 col-md-6 mb-4" v-for="showitem in showitems">
                 <div class="single-blog">
                     <div class="blog-img">
-                        <img src="http://infinityflamesoft.com/html/abal-preview/assets/img/blog/blog1.jpg" alt="">
+                        <img v-bind:src="'/image_assets'+showitem.image" alt="">
                         <div class="post-category">
                         </div>
                     </div>
@@ -176,6 +176,7 @@
             this.$http.get("/api/getItem")
                 .then(function (response) {
                     this.showitems = response.body.data;
+                    console.log(this.showitems);
                 });
         },
         methods:{

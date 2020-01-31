@@ -11,6 +11,7 @@ Vue.use(VueResource);
 
 Vue.component ('navbar', require('./components/Navbar.vue').default);
 
+
 let routes = [
     {path: '/aboutus', component: require('./components/AboutUs.vue').default},
     {path: '/addproduct', component: require('./components/AddProducts.vue').default},

@@ -28,6 +28,17 @@
                        placeholder="Price LKR"
                        v-model="item.price">
             </div>
+
+            <div class="form-group">
+                <label for="">Item Image</label>
+                <input type="file"
+                       name="image"
+                       class="form-control"
+                       placeholder="Image"
+                       @change="getImageOnAction($event)"
+                >
+            </div>
+
             <button type="submit" class="btn btn-primary mt-3" v-show="item.name && item.quantity && item.price">
                 Add to Bucket
             </button>
@@ -45,6 +56,7 @@
                     name: '',
                     quantity: '',
                     price: '',
+                    image:''
                 },
                 error: false,
                 message : ''
@@ -52,21 +64,27 @@
         },
         methods: {
             submitForm() {
-                //
-                // console.log(this.item.product_name);
-                // console.log(this.item.quantity);
-                // console.log(this.item.price);
+                const formData = new FormData();
 
-                this.$http.post("/api/addItem", this.item)
-                    .then(function (response) {
-                        if (response.data.success) {
-                            alert(this.item.name + " added successfully!");
-                            this.$router.push('/bucket');
-                        } else {
-                            this.error = true;
-                            this.message = response.data.data;
-                        }
-                    });
+                formData.append('image', this.item.image);
+                formData.append('name', this.item.name);
+                formData.append('quantity', this.item.quantity);
+                formData.append('price', this.item.price);
+
+                this.$http.post("/api/addItem", formData, {
+                    headers: {'Content-Type': 'multipart/form-data' }
+                }).then(function (response) {
+                    if (response.data.success) {
+                        alert(this.item.name + " added successfully!");
+                        this.$router.push('/bucket');
+                    } else {
+                        this.error = true;
+                        this.message = response.data.data;
+                    }
+                });
+            },
+            getImageOnAction(event) {
+                this.item.image = event.target.files[0];
             }
         }
     }

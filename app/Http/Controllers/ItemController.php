@@ -1,18 +1,20 @@
 <?php
 namespace App\Http\Controllers;
+use Carbon\Carbon;
 use Validator;
 use App\Item;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ItemController extends Controller {
 
-  /**
-   * Created By :
-   * Created At : 29/01/2020
-   * Summary : Adds item to the data table
-   * @param Request $request
-   * @return void
-   */
+    /**
+     * Created By :
+     * Created At : 29/01/2020
+     * Summary : Adds item to the data table
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
 
 //  add new item
     public function addItem (Request $request) {
@@ -35,9 +37,25 @@ class ItemController extends Controller {
             ));
         }
 
+
         $item = new Item();
+
+        //      image upload process
+
+        $file = $request->file('image');
+        $fileText = '';
+        if ($file) {
+            $filename = $file->getClientOriginalName();
+            $uFileName = time() . '-' . rand() . '.' . substr(strrchr($filename,'.'),1);
+            Storage::disk('local')->putFileAs('/public/products', $file, $uFileName);
+            $fileText  = '/products/' . $uFileName;
+        }
+
+        //      end of imaege upload process
+
         $item->product_name = $request->input('name');
         $item->quantity = $request->input('quantity');
+        $item->image = $fileText;
         $item->price = $request->input('price');
 
         $item->save();
